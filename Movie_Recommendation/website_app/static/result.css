@@ -1,0 +1,27 @@
+.header {
+    height: 100%;
+}
+
+.movie-rating {
+    font-size: 14px;
+    color: white;
+}
+
+.movie-info {
+    padding-top: 70%;
+    padding-left: 10%;
+}
+
+.titles-dump{
+    display: none;
+}
+
+.fa-frown-o{
+    font-size: 2rem;
+}
+
+.height50vh {
+    padding-top: 7%;
+    padding-left: 7%;
+    height: 50vh;
+}

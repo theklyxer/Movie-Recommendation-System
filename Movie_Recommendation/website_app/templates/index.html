@@ -1,0 +1,153 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://kit.fontawesome.com/391827d54c.js" crossorigin="anonymous"></script>
+    <link rel="shortcut icon" href="{% static '/images/favicon.ico' %}" type="image/x-icon">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link rel="stylesheet" href="{% static 'style.css' %}">
+    <title>AI FilmFinder - Where Movies Meet Intelligence </title>
+    <style>
+        .answer {
+            display: none;
+        }
+        .answer.active {
+            display: block;
+        }
+    </style>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+
+    document.getElementById("signinButton").addEventListener("click", function() {
+            window.location.href = "/website/signin";
+    });
+
+});
+
+    </script>
+</head>
+<body>
+    <div class="header">
+        <nav>
+            <a href="/website"><img class="logo" src="{% static '/images/logo.png' %}" alt="logo"></a>
+            <div>
+                <button class="lang-btn"><i class="fa-solid fa-globe"></i> English <img src="{% static '/images/down-icon.png' %}"></button>
+                <button id="signinButton" class="cust-color"><a class="no-blue-color" href="/website/signin/ ">Sign In</a></button>
+            </div>
+        </nav>
+        <div class="header-content">
+            <h1>Search for Your Next Favorite Movie</h1>
+            <h4>Get Personalized Recommendations Based on Your Search</h4>
+            <p>Get Started by Creating an Account.</p>
+            <form action="/website/signup/" class="email-signup d-flex justify-content-center">
+                {% csrf_token %}
+            <!--    <input type="email" placeholder="Email address" required class="glass-input" name="email">-->
+                <button style="color: black; width: 10rem; font-weight : bold; margin : 0;;" type="submit">Get Started</button>
+            </form>
+
+            <!-- <p class="header-already">Already have an account? <button class="cust-color cust-color-small"><a class="no-blue-color" href="signin.html">Sign In</a></button></p> -->
+        </div>
+    </div>
+
+    <div class="features">
+        <!-- Features content -->
+        <div class="row">
+            <div class="text-col">
+                <h2><span style="color: #ffa31a;">Personalized</span></h2>
+                <h2 style="margin-top: -20px;">Movie recommendations</h2>
+                <p>Search for Movies and <span style="color: #ffa31a;">get personalized recommendations</span> based on your preferences and similar movies you like.</p></div>
+            <div class="img-col">
+                <img src="{% static '/images/feature1.jpg' %}" alt="feature-1">
+            </div>
+        </div>
+        <div class="row">
+            <div class="img-col">
+                <img src="{% static '/images/feature2.jpg' %}" alt="feature-2">
+            </div>
+            <div class="text-col">
+                <h2><span style="color: #ffa31a;">Explore</span> curated movie collections.</h2>
+                <p>Discover handpicked collections of movies <span style="color: #ffa31a;">tailored to your interests,</span> ensuring you find the perfect film for any occasion or mood.</p>
+            </div>
+
+
+        </div>
+        <!-- <div class="row">
+            <div class="text-col">
+                <h2>Watch everywhere.</h2>
+                <p>Stream unlimited movies and TV shows on your phone, tablet, laptop, and TV.</p>
+            </div>
+            <div class="img-col">
+                <img src="./Assets/feature-3.png" alt="feature-3">
+            </div>
+        </div> -->
+    </div>
+
+    <div class="faq">
+        <h2>Frequently Asked Questions</h2>
+
+        <ul class="accordion">
+            <li class="faq-item">
+                <div class="question d-flex justify-content-between" onclick="toggleAnswer(this)">
+                    <div>
+                        What is <span style="color: #ffa31a;">AI Film Finder </span>?
+                    </div>
+                    <div>
+                        <svg class="plus-icon" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24">
+                            <path fill="#ffa31a" d="M12 2C6.485 2 2 6.485 2 12s4.485 10 10 10 10-4.485 10-10S17.515 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>
+                        </svg>
+                    </div>
+
+                </div>
+                <div class="answer">
+                    <p>AI Film Finder is an <span style="color : #ffa31a">advanced</span> movie recommendation platform that utilizes cutting-edge techniques such as <span style="color : #ffa31a">content-based</span> filtering and <span style="color : #ffa31a">collaborative</span> filtering to suggest personalized movie recommendations to users. Our platform <span style="color : #ffa31a">analyzes user preferences</span> and movie characteristics to provide tailored suggestions, ensuring an enjoyable movie-watching experience for every user.
+                    </p>
+                </div>
+            </li>
+
+            <!-- Other FAQ items -->
+        </ul>
+
+        <!-- <form action="#" class="email-signup">
+            <input type="email" placeholder="Email address" required>
+            <button style="color : black; font-weight: bold;" type="submit">Get Started</button>
+        </form>   -->
+    </div>
+
+    <div class="footer d-flex-col">
+    <h2>Mail to Us? admin@aifilmfinder.com</h2>
+        <div class="row d-flex justify-content-center">
+            <div class="col">
+                <a href="#">Account</a>
+                <a href="#">FAQ</a>
+            </div>
+            <div class="col">
+                <a href="#">Terms of Use</a>
+                <a href="#">Contact Us</a>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function toggleAnswer(element) {
+    const answer = element.nextElementSibling;
+    const plusIcon = element.querySelector('.plus-icon');
+
+    answer.classList.toggle('active');
+    plusIcon.classList.toggle('active');
+
+    if (plusIcon.classList.contains('active')) {
+        // Change plus icon to cross
+        plusIcon.innerHTML = '<path fill="#ffa31a" d="M12 2C6.485 2 2 6.485 2 12s4.485 10 10 10 10-4.485 10-10S17.515 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>';
+    } else {
+        // Change cross to plus icon
+        plusIcon.innerHTML = '<path fill="#ffa31a" d="M12 2C6.485 2 2 6.485 2 12s4.485 10 10 10 10-4.485 10-10S17.515 2 12 2zm5 11h-4v4h-2v-4H7v-2h4V7h2v4h4v2z"/>'
+    }
+}
+
+
+    </script>
+</body>
+</html>
