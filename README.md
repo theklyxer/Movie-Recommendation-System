@@ -13,4 +13,4 @@ The details of the movies(title, genre, runtime, rating, poster, etc) are fetche
 
 # AI Film-Finder
 
-It is our website t
+It is our website that we have made for displaying top 10 similar movies that has obtained by performing advanced machine learning algorithms.
